@@ -76,9 +76,10 @@ namespace FindFiles
                 try
                 {
                     
-                    var files = Directory.GetFiles(path, fileName, SearchOption.AllDirectories);
+                    var files = Directory.GetFiles(path, "*.*", SearchOption.AllDirectories).Where(f=> Path.GetFileName(f).Contains(fileName)).ToArray();
                     // Добавляем в список
-                    listBoxResultsFiles.Items.AddRange(files.ToArray());
+                    if(fileName.Length>0)
+                    listBoxResultsFiles.Items.AddRange(files);
                     if (files.Length < 1)
                     listBoxResultsFiles.Items.Add("Файл не найден");
 
