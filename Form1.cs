@@ -135,7 +135,7 @@ namespace FindFiles
             tSearchText.IsBackground = false;
             tSearchText.Start();
         }
-        private void SearchLinesInFile2(string file, string searchText) // метод для себя, мне нужен поиск только по содержимому без подсчета количества слов, + тут задействуется меньше памяти
+        private void SearchLinesInFile2(string file, string searchText) //  метод для себя, мне нужен поиск только по содержимому без подсчета количества слов, + тут задействуется меньше памяти
         {
             foreach (var line in File.ReadLines(file)) // Читаем файл построчно
             {
