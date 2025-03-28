@@ -36,6 +36,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.listBoxResultsFilesInDirectory = new System.Windows.Forms.ListBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.textBoxWord = new System.Windows.Forms.TextBox();
+            this.buttonSearch = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // textBoxPath
@@ -58,7 +60,7 @@
             // 
             this.listBoxResultsDirectories.FormattingEnabled = true;
             this.listBoxResultsDirectories.ItemHeight = 25;
-            this.listBoxResultsDirectories.Location = new System.Drawing.Point(60, 363);
+            this.listBoxResultsDirectories.Location = new System.Drawing.Point(57, 425);
             this.listBoxResultsDirectories.Name = "listBoxResultsDirectories";
             this.listBoxResultsDirectories.Size = new System.Drawing.Size(950, 304);
             this.listBoxResultsDirectories.TabIndex = 1;
@@ -75,7 +77,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(390, 325);
+            this.label1.Location = new System.Drawing.Point(387, 387);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(256, 25);
             this.label1.TabIndex = 2;
@@ -94,7 +96,7 @@
             // 
             this.listBoxResultsFilesInDirectory.FormattingEnabled = true;
             this.listBoxResultsFilesInDirectory.ItemHeight = 25;
-            this.listBoxResultsFilesInDirectory.Location = new System.Drawing.Point(1053, 363);
+            this.listBoxResultsFilesInDirectory.Location = new System.Drawing.Point(1050, 425);
             this.listBoxResultsFilesInDirectory.Name = "listBoxResultsFilesInDirectory";
             this.listBoxResultsFilesInDirectory.Size = new System.Drawing.Size(1018, 304);
             this.listBoxResultsFilesInDirectory.TabIndex = 1;
@@ -102,23 +104,43 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(1429, 325);
+            this.label3.Location = new System.Drawing.Point(1426, 387);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(249, 25);
             this.label3.TabIndex = 2;
             this.label3.Text = "Список файлов в папке";
+            // 
+            // textBoxWord
+            // 
+            this.textBoxWord.Location = new System.Drawing.Point(69, 270);
+            this.textBoxWord.Name = "textBoxWord";
+            this.textBoxWord.Size = new System.Drawing.Size(407, 31);
+            this.textBoxWord.TabIndex = 0;
+            this.textBoxWord.Text = "искомое слово";
+            // 
+            // buttonSearch
+            // 
+            this.buttonSearch.Location = new System.Drawing.Point(558, 258);
+            this.buttonSearch.Name = "buttonSearch";
+            this.buttonSearch.Size = new System.Drawing.Size(214, 59);
+            this.buttonSearch.TabIndex = 3;
+            this.buttonSearch.Text = "search";
+            this.buttonSearch.UseVisualStyleBackColor = true;
+            this.buttonSearch.Click += new System.EventHandler(this.buttonSearch_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(2144, 1207);
+            this.Controls.Add(this.buttonSearch);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.listBoxResultsFilesInDirectory);
             this.Controls.Add(this.listBoxResultsFiles);
             this.Controls.Add(this.listBoxResultsDirectories);
+            this.Controls.Add(this.textBoxWord);
             this.Controls.Add(this.textBoxFile);
             this.Controls.Add(this.textBoxPath);
             this.Name = "Form1";
@@ -139,6 +161,8 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ListBox listBoxResultsFilesInDirectory;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox textBoxWord;
+        private System.Windows.Forms.Button buttonSearch;
     }
 }
 
