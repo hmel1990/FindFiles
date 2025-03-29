@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -169,28 +169,28 @@ namespace FindFiles
             string searchText = textBoxWord.Text.Trim();
 
             listBoxResultsFiles.Items.Clear(); // Очищаем список перед новым поиском
-
+             
             if (Directory.Exists(path))
             {
-                 try
- {
-     ThreadPool.SetMaxThreads(500, 500); 
-     ThreadPool.SetMinThreads(20, 20); 
+                try
+                {
+                    ThreadPool.SetMaxThreads(500, 500); 
+                    ThreadPool.SetMinThreads(20, 20); 
 
-     var files = Directory.GetFiles(path, "*.*", SearchOption.AllDirectories);
+                    var files = Directory.GetFiles(path, "*.*", SearchOption.AllDirectories);
 
-     foreach (var file in files)
-     {
+                    foreach (var file in files)
+                    {
 
-         ThreadPool.QueueUserWorkItem(state => SearchLinesInFile(file, searchText));
+                        ThreadPool.QueueUserWorkItem(state => SearchLinesInFile(file, searchText));
 
 
-         //Thread tSearchLine = new Thread(() => SearchLinesInFile2(file, searchText)); //() => создаёт анонимную функцию без параметров, которая вызывает SearchLinesInFile(file, searchText)
-         //tSearchLine.IsBackground = false;
-         //tSearchLine.Start();
-     }
+                        //Thread tSearchLine = new Thread(() => SearchLinesInFile2(file, searchText)); //() => создаёт анонимную функцию без параметров, которая вызывает SearchLinesInFile(file, searchText)
+                        //tSearchLine.IsBackground = false;
+                        //tSearchLine.Start();
+                    }
 
- }
+                }
                 catch (Exception ex)
                 {
                     listBoxResultsFiles.Items.Add("Ошибка: " + ex.Message);
