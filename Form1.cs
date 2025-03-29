@@ -172,19 +172,25 @@ namespace FindFiles
 
             if (Directory.Exists(path))
             {
-                try
-                {
-                    var files = Directory.GetFiles(path, "*.*", SearchOption.AllDirectories);
+                 try
+ {
+     ThreadPool.SetMaxThreads(500, 500); 
+     ThreadPool.SetMinThreads(20, 20); 
 
-                    foreach (var file in files)
-                    {
-                        Thread tSearchLine = new Thread(() => SearchLinesInFile(file, searchText)); //() => создаёт анонимную функцию без параметров, которая вызывает SearchLinesInFile(file, searchText)
-                        tSearchLine.IsBackground = false;
-                        tSearchLine.Start();
+     var files = Directory.GetFiles(path, "*.*", SearchOption.AllDirectories);
 
-                    }
+     foreach (var file in files)
+     {
 
-                }
+         ThreadPool.QueueUserWorkItem(state => SearchLinesInFile(file, searchText));
+
+
+         //Thread tSearchLine = new Thread(() => SearchLinesInFile2(file, searchText)); //() => создаёт анонимную функцию без параметров, которая вызывает SearchLinesInFile(file, searchText)
+         //tSearchLine.IsBackground = false;
+         //tSearchLine.Start();
+     }
+
+ }
                 catch (Exception ex)
                 {
                     listBoxResultsFiles.Items.Add("Ошибка: " + ex.Message);
